@@ -1,0 +1,19 @@
+.NoPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    max-width: 200rem;
+    min-height: 100vh;
+
+    color: var(--primary-text-color);
+}
+
+.NoPage h1 {
+    font-size: 7rem;
+}
+.NoPage h3 {
+    font-size: 2rem;
+}

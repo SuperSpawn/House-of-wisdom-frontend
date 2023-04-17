@@ -1,0 +1,47 @@
+.PostBox {
+    display: flex;
+    justify-content: flex-start;
+    width: 80%;
+    height: 10rem;
+    min-width: 40rem;
+    max-width: 120rem;
+    gap: 1rem;
+    color: var(--primary-text-color);
+    border-radius: 0.5rem;
+}
+
+
+.PostBox-content h3 {
+    font-size: 3.3rem;
+}
+.PostBox-content p {
+    font-size: 2rem;
+}
+
+.PostBox-rating {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
+    background-color: var(--primary-text-background-color);
+    font-size: 3rem;
+}
+.PostBox-rating button {
+    border: 0;
+}
+.PostBox-rating button:hover {
+    cursor: pointer;
+}
+
+.PostBox-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    margin-left: auto;
+    background-color: var(--primary-text-background-color);
+}
+.PostBox-actions > button {
+    border: 0;
+    font-size: 2rem;
+}

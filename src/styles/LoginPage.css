@@ -1,0 +1,9 @@
+.LoginPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 200rem;
+    width: 100vw;
+    min-height: 100vh;
+}

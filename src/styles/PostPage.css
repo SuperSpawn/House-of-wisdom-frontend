@@ -1,0 +1,20 @@
+.PostPage {
+    width: 100%;
+    max-width: 250rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    gap: 3rem;
+}
+.PostPage .Post {
+    font-size: 4rem;
+    text-align: center;
+    width: 80%;
+    min-height: 100vh;
+    border: 1px solid black;
+}
+.PostPage .Post > h1 {
+    text-align: center;
+}

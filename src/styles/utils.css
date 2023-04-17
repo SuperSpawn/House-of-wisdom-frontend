@@ -1,0 +1,42 @@
+* {
+    color: var(--primary-text-color);
+}
+
+:root {
+    --primary-button-background-color: lime;
+    --secondary-button-background-color: cyan;
+    --primary-button-color: #666;
+    --secondary-button-color: white;
+    --primary-input-color: #555;
+    --primary-text-color: #555;
+    --primary-user-input-box-border-color: #eee;
+    --secondary-user-input-box-border-color: #bbb;
+    --primary-user-input-box-shadow-color: #eee;
+    --primary-text-background-color: #eee;
+}
+.green-text-upon-hover:hover {
+    color: lime;
+}
+.red-text-upon-hover:hover {
+    color: red;
+}
+
+.cursor-upon-hover:hover {
+    cursor: pointer;
+}
+
+.box-border-dynamic {
+    border: 1px solid var(--primary-user-input-box-border-color);
+}
+.box-border-dynamic:hover {
+    border: 1px solid var(--secondary-user-input-box-border-color);
+}
+
+.pseudo-link {
+    text-decoration: underline;
+    color: var(--primary-text-color);
+}
+.pseudo-link:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
