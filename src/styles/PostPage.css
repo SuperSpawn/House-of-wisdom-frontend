@@ -1,20 +1,25 @@
 .PostPage {
-    width: 100%;
-    max-width: 250rem;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem 0;
-    gap: 3rem;
+  width: 100%;
+  max-width: 250rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  gap: 3rem;
 }
 .PostPage .Post {
-    font-size: 4rem;
-    text-align: center;
-    width: 80%;
-    min-height: 100vh;
-    border: 1px solid black;
+  font-size: 4rem;
+  text-align: left;
+  width: 80%;
+  min-height: 100vh;
+  border: 1px solid var(--secondary-user-input-box-border-color);
+  padding: 1rem;
 }
 .PostPage .Post > h1 {
-    text-align: center;
+  font-size: 4rem;
+  text-align: center;
+}
+.PostPage .Post > h2 {
+  font-size: 2.5rem;
 }

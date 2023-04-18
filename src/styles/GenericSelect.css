@@ -1,0 +1,23 @@
+.GenericSelect {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #f8f9fa;
+  color: #333;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+.GenericSelect > option {
+  border-radius: none;
+  border: 0;
+  max-width: 100%;
+  border: 0;
+  font-size: 1.7rem;
+  border-radius: 50%;
+}
