@@ -10,15 +10,38 @@ import "../styles/PostBox.css";
 
 //hooks
 import usePutAuthFunction from "../hooks/usePutAuthFunction";
+import useDeleteFunction from "../hooks/useDeleteFunction";
 
 //constants
 import { webLink } from "../constants";
 
-export const PostBox = ({ data, index, posts, setPosts }) => {
+export const PostBox = ({ data, index, posts, setPosts, disabled }) => {
   const navigate = useNavigate();
-  const { error, data: response, putData } = usePutAuthFunction();
+  const { putData } = usePutAuthFunction();
+  const { responseData, deleteRequest } = useDeleteFunction(
+    webLink + "posts/" + data._id
+  );
 
+  const deleteHandler = (e) => {
+    e.stopPropagation();
+    if (disabled) return;
+
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) return;
+    deleteRequest(user.token)
+      .then(() => {
+        if (responseData && responseData.success) {
+          let updatedPosts = posts;
+          updatedPosts.splice(index, 1);
+          setPosts(updatedPosts);
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
   const clickHandler = () => {
+    if (disabled) return;
     localStorage.setItem("post", data._id);
     navigate("/post");
   };
@@ -64,14 +87,18 @@ export const PostBox = ({ data, index, posts, setPosts }) => {
           <p>{data.description}</p>
         </div>
       </div>
-      <div className="PostBox-actions">
-        <button className="cursor-upon-hover">
-          <FontAwesomeIcon icon={faEdit} />
-        </button>
-        <button className="cursor-upon-hover">
-          <FontAwesomeIcon icon={faTrashAlt} />
-        </button>
-      </div>
+      {!disabled && (
+        <div className="PostBox-right-end">
+          <div className="PostBox-actions">
+            <button className="cursor-upon-hover">
+              <FontAwesomeIcon icon={faEdit} />
+            </button>
+            <button className="cursor-upon-hover" onClick={deleteHandler}>
+              <FontAwesomeIcon icon={faTrashAlt} />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

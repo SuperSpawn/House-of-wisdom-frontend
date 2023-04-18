@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 //styles
 import "../styles/reset.css";
 import "../styles/utils.css";
+import "../styles/CreatePostPage.css";
 
 //components
 import { CreatePostInput } from "../components/CreatePostInput";
@@ -55,24 +56,34 @@ export const CreatePostPage = () => {
   if (loading) return <Loading />;
   if (error) return <NoPage errorCode="500" errorMessage="Failed to post" />;
   if (response) {
-    navigate("/post");
+    if (response.success === false)
+      return <NoPage errorCode="500" errorMessage={response.error} />;
+    navigate("/");
+    return <Loading />;
   }
 
   return (
     <div className="CreatePostPage">
-      <input ref={titleRef} placeholder="Title" />
-      <div>
-        <textarea ref={descriptionRef} placeholder="Description" />
+      <input className="title" ref={titleRef} placeholder="Title" />
+      <div className="description">
+        <textarea
+          className="description"
+          ref={descriptionRef}
+          placeholder="Description"
+        />
       </div>
       <div className="">
         <CreatePostInput
           markdown={markdown}
           setMarkdown={setMarkdown}
+          showMarkdown={showMarkdown}
           setShowMarkdown={setShowMarkdown}
+          showTextMarkdown={showTextMarkdown}
           setShowTextMarkdown={setShowTextMarkdown}
         />
         {showTextMarkdown && (
           <textarea
+            className="text-markdown"
             value={markdown}
             onChange={(e) => setMarkdown(e.target.value)}
           />
@@ -82,7 +93,9 @@ export const CreatePostPage = () => {
             <ReactMarkdown components={renderers}>{markdown}</ReactMarkdown>
           )}
         </div>
-        <button onClick={postHandler}>Post</button>
+        <button className="button cursor-upon-hover" onClick={postHandler}>
+          Post
+        </button>
       </div>
     </div>
   );

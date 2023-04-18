@@ -11,6 +11,9 @@ import { NoPage } from "../pages/NoPage";
 import { Loading } from "../components/Loading";
 import { PostBox } from "../components/PostBox";
 
+//render components
+import { CodeBlock } from "../services/CodeBlock";
+
 //hooks
 import useFetchData from "../hooks/useFetchData";
 
@@ -22,6 +25,9 @@ export const PostPage = () => {
   const { loading, error, data, fetchData } = useFetchData(
     webLink + "posts/" + id
   );
+  const renderers = {
+    code: CodeBlock,
+  };
 
   useEffect(() => {
     fetchData();
@@ -39,10 +45,10 @@ export const PostPage = () => {
 
   return (
     <div className="PostPage">
-      {post && <PostBox data={post} />}
+      {post && <PostBox disabled={true} data={post} />}
       {data && (
         <div className="Post">
-          <ReactMarkdown>{post.content}</ReactMarkdown>
+          <ReactMarkdown components={renderers}>{post.content}</ReactMarkdown>
         </div>
       )}
     </div>

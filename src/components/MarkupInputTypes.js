@@ -4,6 +4,7 @@ import React from "react";
 import "../styles/reset.css";
 import "../styles/utils.css";
 import "../styles/CodeBlock.css";
+import "../styles/CreatePostInput.css";
 
 export const MarkupInputTypes = ({
   type,
@@ -22,7 +23,7 @@ export const MarkupInputTypes = ({
   switch (type) {
     case "h1":
       return (
-        <div>
+        <div className="input">
           <input
             type="text"
             placeholder="Title"
@@ -33,7 +34,7 @@ export const MarkupInputTypes = ({
       );
     case "h2":
       return (
-        <div>
+        <div className="input">
           <input
             type="text"
             placeholder="Sub-title"
@@ -44,7 +45,7 @@ export const MarkupInputTypes = ({
       );
     case "p":
       return (
-        <div>
+        <div className="input">
           <textarea
             type="text"
             placeholder="paragraph"
@@ -55,7 +56,7 @@ export const MarkupInputTypes = ({
       );
     case "bold":
       return (
-        <div>
+        <div className="input">
           <input
             type="text"
             placeholder="Bold text"
@@ -66,7 +67,7 @@ export const MarkupInputTypes = ({
       );
     case "img":
       return (
-        <div>
+        <div className="input">
           <input
             type="text"
             placeholder="image link"
@@ -77,7 +78,7 @@ export const MarkupInputTypes = ({
       );
     case "a":
       return (
-        <div>
+        <div className="input">
           <input
             type="text"
             placeholder="text"
@@ -94,7 +95,7 @@ export const MarkupInputTypes = ({
       );
     case "quote":
       return (
-        <div>
+        <div className="input">
           <input
             type="text"
             placeholder="quote"
@@ -105,7 +106,7 @@ export const MarkupInputTypes = ({
       );
     case "code":
       return (
-        <div>
+        <div className="input">
           <textarea
             className="CodeBlock"
             placeholder="Code"
@@ -116,7 +117,7 @@ export const MarkupInputTypes = ({
       );
     case "h3":
       return (
-        <div>
+        <div className="input">
           <input
             type="text"
             placeholder="h3"
@@ -127,7 +128,7 @@ export const MarkupInputTypes = ({
       );
     case "h4":
       return (
-        <div>
+        <div className="input">
           <input
             type="text"
             placeholder="h4"
@@ -138,7 +139,7 @@ export const MarkupInputTypes = ({
       );
     case "h5":
       return (
-        <div>
+        <div className="input">
           <input
             type="text"
             placeholder="h5"
@@ -149,7 +150,7 @@ export const MarkupInputTypes = ({
       );
     case "h6":
       return (
-        <div>
+        <div className="input">
           <input
             type="text"
             placeholder="h6"
@@ -160,7 +161,7 @@ export const MarkupInputTypes = ({
       );
     case "h7":
       return (
-        <div>
+        <div className="input">
           <input
             type="text"
             placeholder="h7"

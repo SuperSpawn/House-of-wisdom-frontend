@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUndo } from "@fortawesome/free-solid-svg-icons";
+import { faNewspaper } from "@fortawesome/free-solid-svg-icons";
 
 //styles
 import "../styles/reset.css";
 import "../styles/utils.css";
+import "../styles/CreatePostInput.css";
 
 //components
 import { MarkupInputTypes } from "./MarkupInputTypes";
@@ -13,7 +17,9 @@ import toMarkup from "../services/toMarkup";
 export const CreatePostInput = ({
   markdown,
   setMarkdown,
+  showMarkdown,
   setShowMarkdown,
+  showTextMarkdown,
   setShowTextMarkdown,
 }) => {
   const [selectedValue, setSelectedValue] = useState("h1");
@@ -44,8 +50,8 @@ export const CreatePostInput = ({
   };
 
   return (
-    <div>
-      <div>
+    <div className="CreatePostInput">
+      <div className="actions">
         <select name="options" onChange={handleSelectChange}>
           <option value="h1">Title</option>
           <option value="h2">Sub-title</option>
@@ -61,10 +67,22 @@ export const CreatePostInput = ({
           <option value="h6">h6</option>
           <option value="h7">h7</option>
         </select>
-        <button onClick={addHandler}>Add</button>
-        <button onClick={resetHandler}>Reset</button>
-        <button onClick={toggleShowTextMarkdown}>Toggle markdown</button>
-        <button onClick={toggleShowMarkdown}>Toggle final</button>
+        <button onClick={addHandler}>+</button>
+        <button onClick={resetHandler}>
+          <FontAwesomeIcon icon={faUndo} />
+        </button>
+        <button
+          className={showTextMarkdown ? "active-toggle" : "inactive-toggle"}
+          onClick={toggleShowTextMarkdown}
+        >
+          {"</>"}
+        </button>
+        <button
+          className={showMarkdown ? "active-toggle" : "inactive-toggle"}
+          onClick={toggleShowMarkdown}
+        >
+          <FontAwesomeIcon icon={faNewspaper} />
+        </button>
       </div>
       <MarkupInputTypes
         type={selectedValue}
