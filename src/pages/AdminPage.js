@@ -5,9 +5,7 @@ import "../styles/reset.css";
 import "../styles/utils.css";
 
 //components
-import { Loading } from "../components/Loading";
 import { NoPage } from "./NoPage";
-import { AdminUserBox } from "../components/AdminUserBox";
 
 export const AdminPage = () => {
   const user = JSON.parse(localStorage.getItem("user"));
