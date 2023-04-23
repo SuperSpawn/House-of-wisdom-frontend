@@ -88,7 +88,7 @@ export const CreatePostPage = () => {
             onChange={(e) => setMarkdown(e.target.value)}
           />
         )}
-        <div className="Markdown">
+        <div className="markdown">
           {showMarkdown && (
             <ReactMarkdown components={renderers}>{markdown}</ReactMarkdown>
           )}

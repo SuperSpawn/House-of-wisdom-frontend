@@ -11,7 +11,8 @@
 .PostPage .Post {
   font-size: 4rem;
   text-align: left;
-  width: 80%;
+  min-width: 40rem;
+  max-width: 120rem;
   min-height: 100vh;
   border: 1px solid var(--secondary-user-input-box-border-color);
   padding: 1rem;
